@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename = 'main.css' )}}">
+    
+    <title>Document</title>
+</head>
+
+<body>
+    <a class="link" href="/">Home</a>
+    <div class="totalcont">
+        <form action="/add/update" method="post">
+            <h1 class="newbtn">Create a book</h1>
+            <h4>Name</h4>
+            <input type="text" name="book_name">
+            <div class="input-tag">
+                <h4>Pages</h4>
+                <input type="int" name="pages">
+            </div>
+            <input class="submit" type="submit" value="Submit">
+        </form>
+        <div class="contofthi">
+        <h1 class="cont">All books</h1>
+        <div class="contofthis">
+            {%for book in all_books %}
+            <div>
+                Name: {{book.book_name}}
+            </div>
+            Pages: {{book.pages}}
+            <h6>-------------------------</h6>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
